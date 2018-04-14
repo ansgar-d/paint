@@ -2,6 +2,11 @@ package groupd.paint;
 
 import java.awt.Color;
 
+/**
+ * 
+ * @author ansgar.goeb
+ *
+ */
 public class CurrentPaintConfiguration {
 
 	Shapes currentShape;

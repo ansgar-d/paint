@@ -1,3 +1,8 @@
 package groupd.paint;
 
-public enum Shapes {Line, Rectangle,}
+/**
+ * 
+ * @author ansgar.goeb
+ *
+ */
+public enum Shapes {Line, Rectangle, Oval}

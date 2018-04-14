@@ -1,6 +1,5 @@
 package groupd.paint;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,6 +18,7 @@ public class PaintPanel extends JPanel {
 
 	private BaseShape currentShape;
 	private List<BaseShape> paintedShapes = new ArrayList<BaseShape>();
+	private List<BaseShape> undoneShapes = new ArrayList<BaseShape>();
 	private CurrentPaintConfiguration configuration;
 
 	public PaintPanel(CurrentPaintConfiguration aConfiguration) {
@@ -37,6 +37,33 @@ public class PaintPanel extends JPanel {
 
 	}
 
+	public void undo() {
+	
+		if (paintedShapes.size() > 0)
+		{
+			undoneShapes.add(paintedShapes.get(paintedShapes.size() - 1));
+			paintedShapes.remove(paintedShapes.size() - 1);
+		}
+		
+		repaint();
+	}
+	
+	public void redo() {
+		if(undoneShapes.size() > 0) {
+			paintedShapes.add(undoneShapes.get(undoneShapes.size() -1 ));
+			undoneShapes.remove(undoneShapes.size() -1);
+		}
+
+		repaint();
+	}
+	
+	
+	public void erase() {
+		paintedShapes.clear();
+		repaint();
+	}
+	
+	
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
@@ -66,6 +93,11 @@ public class PaintPanel extends JPanel {
 				
 				currentShape = new Rectangle(event.getX(),event.getY(), configuration.getCurrentOutlineColor(), configuration.getCurrentFillColor());
 			}
+			
+			else if (configuration.getCurrentShape() == Shapes.Oval) {
+				
+				currentShape = new Oval(event.getX(),event.getY(), configuration.getCurrentOutlineColor(), configuration.getCurrentFillColor());
+			}
 
 		}
 
@@ -80,6 +112,7 @@ public class PaintPanel extends JPanel {
 		}
 
 		public void mouseDragged(MouseEvent event) {
+
 			currentShape.setEndPosition(event.getX(), event.getY());
 			repaint();
 		}

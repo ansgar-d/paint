@@ -55,8 +55,10 @@ public class Paint {
 		CurrentPaintConfiguration configuration = new CurrentPaintConfiguration();
 
 		// just for test must be replaced with menu-settings!
-		configuration.setCurrentShape(Shapes.Line);
-		configuration.setCurrentFillColor(null);
+		// for the menu the fill color can be set to null
+		// the Color (which means the outline color, or the line must allways be filled)
+		configuration.setCurrentShape(Shapes.Oval);
+		configuration.setCurrentFillColor(Color.red);
 		configuration.setCurrentOutlineColor(Color.black);
 
 		PaintPanel paintPanel = new PaintPanel(configuration);
