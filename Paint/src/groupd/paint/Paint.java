@@ -53,19 +53,18 @@ public class Paint {
 		mainFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 
 		CurrentPaintConfiguration configuration = new CurrentPaintConfiguration();
-		
-		configuration.setCurrentShape(Shapes.Line);
-		configuration.setCurrentFillColor(Color.BLACK);
-		configuration.setCurrentOutlineColor(Color.red);
 
-		
-		PaintPanel  paintPanel = new PaintPanel(configuration);
+		// just for test must be replaced with menu-settings!
+		configuration.setCurrentShape(Shapes.Line);
+		configuration.setCurrentFillColor(null);
+		configuration.setCurrentOutlineColor(Color.black);
+
+		PaintPanel paintPanel = new PaintPanel(configuration);
 		mainFrame.getContentPane().add(paintPanel, BorderLayout.CENTER);
-		
-		JPanel menuPanel = new MenuPanel(configuration,paintPanel);
+
+		JPanel menuPanel = new MenuPanel(configuration, paintPanel);
 		mainFrame.getContentPane().add(menuPanel, BorderLayout.NORTH);
-		
-	
+
 	}
 
 }

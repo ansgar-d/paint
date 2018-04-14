@@ -58,8 +58,13 @@ public class PaintPanel extends JPanel {
 			
 			if (configuration.getCurrentShape() == Shapes.Line) {
 				
-				currentShape = new Line(event.getX(), event.getY(), configuration.getCurrentFillColor());
+				currentShape = new Line(event.getX(), event.getY(), configuration.getCurrentOutlineColor());
 			
+			}
+			
+			else if (configuration.getCurrentShape() == Shapes.Rectangle) {
+				
+				currentShape = new Rectangle(event.getX(),event.getY(), configuration.getCurrentOutlineColor(), configuration.getCurrentFillColor());
 			}
 
 		}
