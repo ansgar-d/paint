@@ -2,6 +2,7 @@ package groupd.paint;
 
 import java.awt.Color;
 
+
 /**
  * 
  * @author ansgar.goeb
@@ -9,15 +10,15 @@ import java.awt.Color;
  */
 public class CurrentPaintConfiguration {
 
-	Shapes currentShape;
+	Shape currentShape;
 	Color currentOutlineColor;
 	Color currentFillColor;
 	
-	public Shapes getCurrentShape() {
+	public Shape getCurrentShape() {
 		return currentShape;
 	}
-	public void setCurrentShape(Shapes currentShape) {
-		this.currentShape = currentShape;
+	public void setCurrentShape(Shape shapeArray) {
+		this.currentShape = shapeArray;
 	}
 	public Color getCurrentOutlineColor() {
 		return currentOutlineColor;

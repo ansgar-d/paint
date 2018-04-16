@@ -2,9 +2,14 @@ package groupd.paint;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 public class MenuPanel extends JPanel {
@@ -17,17 +22,28 @@ public class MenuPanel extends JPanel {
 		this.configuration = aConfigurration;
 		this.paintPanel = aPaintPanel;
 		
+		
+		
 		initialize();
 		
 	}
 	
 	private void initialize() {
 		
-		JMenuBar menuBar = new JMenuBar();
-		add(menuBar);
+		Colors colors = new Colors();
+
+		Shapes shapes = new Shapes();
 		
-		JMenu mnNewMenu = new JMenu("New menu");
-		add(mnNewMenu);
+		JComboBox<String> shapeCombo = new JComboBox<String>(shapes.shapeOptions);
+		shapeCombo.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				int selectedIndex = shapeCombo.getSelectedIndex();
+				  configuration.setCurrentShape(shapes.shapeArray[selectedIndex]);
+			}
+		});
+		add(shapeCombo);
 		
 		JButton btnUndo = new JButton("undo");
 		btnUndo.addActionListener(new ActionListener() {
@@ -52,6 +68,37 @@ public class MenuPanel extends JPanel {
 			}
 		});
 		add(btnRedo);
+		
+		JLabel outlineLabel = new JLabel("Outline Color : ");
+		add(outlineLabel);
+		
+		JComboBox<String> outLineColorCombo = new JComboBox<String>(colors.colorOptions);
+		outLineColorCombo.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+			int selectedIndex = outLineColorCombo.getSelectedIndex();
+			  configuration.setCurrentOutlineColor(colors.colorArray[selectedIndex]);
+				
+			}
+		});
+		add(outLineColorCombo);
+		
+		
+		JLabel filledColor = new JLabel("Filled Color : ");
+		add(filledColor);
+		
+		JComboBox<String> filledColorCombo = new JComboBox<String>(colors.colorOptions);
+		filledColorCombo.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+			int selectedIndex = filledColorCombo.getSelectedIndex();
+			  configuration.setCurrentFillColor(colors.colorArray[selectedIndex]);
+				
+			}
+		});
+		add(filledColorCombo);
 		
 	}
 

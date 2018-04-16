@@ -83,18 +83,18 @@ public class PaintPanel extends JPanel {
 
 		public void mousePressed(MouseEvent event) {
 			
-			if (configuration.getCurrentShape() == Shapes.Line) {
+			if (configuration.getCurrentShape() == Shape.Line) {
 				
 				currentShape = new Line(event.getX(), event.getY(), configuration.getCurrentOutlineColor());
 			
 			}
 			
-			else if (configuration.getCurrentShape() == Shapes.Rectangle) {
+			else if (configuration.getCurrentShape() == Shape.Rectangle) {
 				
 				currentShape = new Rectangle(event.getX(),event.getY(), configuration.getCurrentOutlineColor(), configuration.getCurrentFillColor());
 			}
 			
-			else if (configuration.getCurrentShape() == Shapes.Oval) {
+			else if (configuration.getCurrentShape() == Shape.Oval) {
 				
 				currentShape = new Oval(event.getX(),event.getY(), configuration.getCurrentOutlineColor(), configuration.getCurrentFillColor());
 			}

@@ -48,19 +48,23 @@ public class Paint {
 	 */
 	private void initialize() {
 		mainFrame = new JFrame();
-		mainFrame.setBounds(100, 100, 718, 525);
+		mainFrame.setBounds(100, 100, 918, 525);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.getContentPane().setLayout(new BorderLayout(0, 0));
-
+		
+		Shapes shapes = new Shapes ();
+		Colors colors = new Colors ();
+		
 		CurrentPaintConfiguration configuration = new CurrentPaintConfiguration();
 
 		// just for test must be replaced with menu-settings!
 		// for the menu the fill color can be set to null
 		// the Color (which means the outline color, or the line must allways be filled)
-		configuration.setCurrentShape(Shapes.Oval);
-		configuration.setCurrentFillColor(Color.red);
-		configuration.setCurrentOutlineColor(Color.black);
-
+		configuration.setCurrentShape(shapes.shapeArray[0]);
+		configuration.setCurrentOutlineColor(colors.colorArray[0]);
+		configuration.setCurrentFillColor(colors.colorArray[0]);
+		
+		
 		PaintPanel paintPanel = new PaintPanel(configuration);
 		mainFrame.getContentPane().add(paintPanel, BorderLayout.CENTER);
 
