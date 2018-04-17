@@ -7,6 +7,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 import java.awt.BorderLayout;
 
@@ -29,7 +30,7 @@ public class Paint {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Paint window = new Paint();
