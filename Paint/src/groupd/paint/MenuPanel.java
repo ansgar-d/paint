@@ -1,26 +1,21 @@
 package groupd.paint;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class MenuPanel extends JPanel {
 	
 	private CurrentPaintConfiguration configuration;
-	private PaintPanel paintPanel;
+//	private PaintPanel paintPanel;
 	
 	public MenuPanel(CurrentPaintConfiguration aConfigurration, PaintPanel aPaintPanel) {
 
 		this.configuration = aConfigurration;
-		this.paintPanel = aPaintPanel;
+//		this.paintPanel = aPaintPanel;
 		
 		
 		
@@ -45,29 +40,29 @@ public class MenuPanel extends JPanel {
 		});
 		add(shapeCombo);
 		
-		JButton btnUndo = new JButton("undo");
-		btnUndo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				paintPanel.undo();
-			}
-		});
-		add(btnUndo);
-		
-		JButton btnErase = new JButton("erase");
-		btnErase.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				paintPanel.erase();
-			}
-		});
-		add(btnErase);
-		
-		JButton btnRedo = new JButton("redo");
-		btnRedo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				paintPanel.redo();
-			}
-		});
-		add(btnRedo);
+//		JButton btnUndo = new JButton("undo");
+//		btnUndo.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				paintPanel.undo();
+//			}
+//		});
+//		add(btnUndo);
+//		
+//		JButton btnErase = new JButton("erase");
+//		btnErase.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				paintPanel.erase();
+//			}
+//		});
+//		add(btnErase);
+//		
+//		JButton btnRedo = new JButton("redo");
+//		btnRedo.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				paintPanel.redo();
+//			}
+//		});
+//		add(btnRedo);
 		
 		JLabel outlineLabel = new JLabel("Outline Color : ");
 		add(outlineLabel);
