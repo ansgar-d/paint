@@ -21,9 +21,11 @@ public class PaintPanel extends JPanel {
 	private List<BaseShape> paintedShapes = new ArrayList<BaseShape>();
 	private List<BaseShape> undoneShapes = new ArrayList<BaseShape>();
 	private CurrentPaintConfiguration configuration;
-	private SavePaint savePaint = new SavePaint();
+	private SavePaint savePaint ;
+
 	
-	public PaintPanel(CurrentPaintConfiguration aConfiguration) {
+	public PaintPanel(CurrentPaintConfiguration aConfiguration, JFrame mainFrame) {
+		this.savePaint = new SavePaint(this, mainFrame);
 		this.configuration = aConfiguration;
 		initialize();
 	}
@@ -59,12 +61,16 @@ public class PaintPanel extends JPanel {
 		repaint();
 	}
 	
-	public void save(JFrame mainframe) {
-		savePaint.save(this, mainframe);
+	public void save() {
+		savePaint.save();
 	}
 	
-	public void saveAs(JFrame mainframe) {
-		savePaint.saveAs(this, mainframe);
+	public void saveAs() {
+		savePaint.saveAs();
+	}
+	
+	public void autoSave() {
+		savePaint.autoSave();
 	}
 	
 	public void erase() {

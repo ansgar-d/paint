@@ -2,6 +2,7 @@ package groupd.paint;
 
 import java.awt.EventQueue;
 
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -73,7 +74,7 @@ public class Paint {
 		prepareMenu();
 
 		
-		paintPanel = new PaintPanel(configuration);
+		paintPanel = new PaintPanel(configuration, mainFrame);
 		mainFrame.getContentPane().add(paintPanel, BorderLayout.CENTER);
 
 		JPanel menuPanel = new MenuPanel(configuration, paintPanel);
@@ -104,6 +105,9 @@ public class Paint {
 	      JMenuItem newSaveAsItem = new JMenuItem("Save As");
 	      newSaveAsItem.setActionCommand("Save As");
 	     
+	      JCheckBoxMenuItem checkBoxMenuItem = new JCheckBoxMenuItem("Auto Save");
+	      checkBoxMenuItem.setActionCommand("Auto Save");
+	      
 	      
 	      JMenuItem exitMenuItem = new JMenuItem("Exit");
 	      exitMenuItem.setActionCommand("Exit");
@@ -130,11 +134,13 @@ public class Paint {
 	      newRedoItem.addActionListener(menuItemListener);
 	      newSaveItem.addActionListener(menuItemListener);
 	      newSaveAsItem.addActionListener(menuItemListener);
+	      checkBoxMenuItem.addActionListener(menuItemListener);
 
 	      
 	      fileMenu.add(newMenuItem);
 	      fileMenu.add(newSaveItem);
 	      fileMenu.add(newSaveAsItem);
+	      fileMenu.add(checkBoxMenuItem);
 	      fileMenu.addSeparator();
 	      fileMenu.add(exitMenuItem);
 	      
@@ -174,11 +180,15 @@ public class Paint {
 			}
 			else if (e.getActionCommand().equalsIgnoreCase("Save"))
 			{
-				paintPanel.save(mainFrame);
+				paintPanel.save();
 			}
 			else if (e.getActionCommand().equalsIgnoreCase("Save As"))
 			{
-				paintPanel.saveAs(mainFrame);
+				paintPanel.saveAs();
+			}
+			else if (e.getActionCommand().equalsIgnoreCase("Auto Save"))
+			{
+				paintPanel.autoSave();
 			}
 		}    
 	   }

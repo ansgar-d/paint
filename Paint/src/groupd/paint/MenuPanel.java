@@ -39,30 +39,7 @@ public class MenuPanel extends JPanel {
 			}
 		});
 		add(shapeCombo);
-		
-//		JButton btnUndo = new JButton("undo");
-//		btnUndo.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				paintPanel.undo();
-//			}
-//		});
-//		add(btnUndo);
-//		
-//		JButton btnErase = new JButton("erase");
-//		btnErase.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				paintPanel.erase();
-//			}
-//		});
-//		add(btnErase);
-//		
-//		JButton btnRedo = new JButton("redo");
-//		btnRedo.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				paintPanel.redo();
-//			}
-//		});
-//		add(btnRedo);
+
 		
 		JLabel outlineLabel = new JLabel("Outline Color : ");
 		add(outlineLabel);
