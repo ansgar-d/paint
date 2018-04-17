@@ -1,5 +1,6 @@
 package groupd.paint;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,7 +21,8 @@ public class PaintPanel extends JPanel {
 	private List<BaseShape> paintedShapes = new ArrayList<BaseShape>();
 	private List<BaseShape> undoneShapes = new ArrayList<BaseShape>();
 	private CurrentPaintConfiguration configuration;
-
+	private SavePaint savePaint = new SavePaint();
+	
 	public PaintPanel(CurrentPaintConfiguration aConfiguration) {
 		this.configuration = aConfiguration;
 		initialize();
@@ -57,6 +59,13 @@ public class PaintPanel extends JPanel {
 		repaint();
 	}
 	
+	public void save(JFrame mainframe) {
+		savePaint.save(this, mainframe);
+	}
+	
+	public void saveAs(JFrame mainframe) {
+		savePaint.saveAs(this, mainframe);
+	}
 	
 	public void erase() {
 		paintedShapes.clear();

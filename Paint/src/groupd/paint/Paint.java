@@ -94,6 +94,16 @@ public class Paint {
 	      newMenuItem.setAccelerator(KeyStroke.getKeyStroke(
 	    		    KeyEvent.VK_N, ActionEvent.CTRL_MASK));
 	      
+	      //create File Menu items
+	      JMenuItem newSaveItem = new JMenuItem("Save");
+	      newSaveItem.setActionCommand("Save");
+	      newSaveItem.setAccelerator(KeyStroke.getKeyStroke(
+	    		    KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+	      
+	      JMenuItem newSaveAsItem = new JMenuItem("Save As");
+	      newSaveAsItem.setActionCommand("Save As");
+	     
+	      
 	      JMenuItem exitMenuItem = new JMenuItem("Exit");
 	      exitMenuItem.setActionCommand("Exit");
 	      exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(
@@ -117,9 +127,13 @@ public class Paint {
 	      exitMenuItem.addActionListener(menuItemListener);
 	      newUndoItem.addActionListener(menuItemListener);
 	      newRedoItem.addActionListener(menuItemListener);
+	      newSaveItem.addActionListener(menuItemListener);
+	      newSaveAsItem.addActionListener(menuItemListener);
 
 	      
 	      fileMenu.add(newMenuItem);
+	      fileMenu.add(newSaveItem);
+	      fileMenu.add(newSaveAsItem);
 	      fileMenu.addSeparator();
 	      fileMenu.add(exitMenuItem);
 	      
@@ -156,6 +170,14 @@ public class Paint {
 			else if (e.getActionCommand().equalsIgnoreCase("Redo"))
 			{
 				paintPanel.redo();
+			}
+			else if (e.getActionCommand().equalsIgnoreCase("Save"))
+			{
+				paintPanel.save(mainFrame);
+			}
+			else if (e.getActionCommand().equalsIgnoreCase("Save As"))
+			{
+				paintPanel.saveAs(mainFrame);
 			}
 		}    
 	   }
