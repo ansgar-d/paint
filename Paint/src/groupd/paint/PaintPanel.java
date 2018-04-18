@@ -22,7 +22,7 @@ public class PaintPanel extends JPanel {
     // the not yet finished currently painted shape
 	private BaseShape currentShape;
 	
-	// shapes that are painted and needs to be reproduces when the shapes
+	// shapes that are painted and which need to be reproduced when the shapes
 	// are repainted
 	private List<BaseShape> paintedShapes = new ArrayList<BaseShape>();
 	
@@ -47,13 +47,13 @@ public class PaintPanel extends JPanel {
 	}
 
 	/**
-	 * initialize the are to paint
+	 * initialize the area  to paint
 	 */
 	private void initialize() {
 
 		setLayout(new BorderLayout());
 		
-		// put the color of the background to white to make is look as a
+		// put the color of the background to white to make it look as a
 		// whiteboard
 		setBackground(Color.WHITE);
 
@@ -152,7 +152,7 @@ public class PaintPanel extends JPanel {
 
 
 	/**
-	 * inner class to handel the mouse events
+	 * inner class to handle the mouse events
 	 */
 	private class MouseHandler extends MouseAdapter {
 

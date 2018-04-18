@@ -16,7 +16,7 @@ import java.awt.event.KeyEvent;
 /**
  * 
  * @author ansgar.goeb (initially created)
- * @author helmi.hasan (added menu)
+ * @author helmi.hasan (menu added)
  * 
  * Main class of the application. It starts the app
  * and sets the menu.
@@ -82,7 +82,7 @@ public class Paint {
 		// add the paint panel to the main frame
 		mainFrame.getContentPane().add(paintPanel, BorderLayout.CENTER);
 
-		// construct an add the menu panel
+		// construct and add the menu panel
 		JPanel menuPanel = new MenuPanel(configuration, paintPanel);
 		mainFrame.getContentPane().add(menuPanel, BorderLayout.NORTH);
 

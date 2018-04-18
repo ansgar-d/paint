@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
  * 
  * @author ansgar.goeb
  * 
- *         Paints a rectangle.
+ * Paints a rectangle.
  * 
  */
 public class Rectangle extends BoundedShape {

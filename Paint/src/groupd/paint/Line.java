@@ -7,7 +7,7 @@ import java.awt.Graphics;
  * 
  * @author ansgar.goeb
  * 
- *         Shape that draws a line
+ * Shape that draws a line
  */
 public class Line extends BaseShape {
 
@@ -20,7 +20,7 @@ public class Line extends BaseShape {
 	}
 
 	/**
-	 * methods to draw aline
+	 * methods to draw a line
 	 */
 	@Override
 	public void draw(Graphics g) {
