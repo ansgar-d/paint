@@ -1,7 +1,5 @@
 package groupd.paint;
 
-import java.awt.EventQueue;
-
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -9,9 +7,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-
 import java.awt.BorderLayout;
-
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,8 +15,11 @@ import java.awt.event.KeyEvent;
 
 /**
  * 
- * @author ansgar.goeb
- *
+ * @author ansgar.goeb (initially created)
+ * @author helmi.hasan (added menu)
+ * 
+ * Main class of the application. It starts the app
+ * and sets the menu.
  */
 public class Paint {
 
@@ -44,7 +43,7 @@ public class Paint {
 	}
 
 	/**
-	 * Create the application.
+	 * initialize the application.
 	 */
 	public Paint() {
 		initialize();
@@ -54,29 +53,36 @@ public class Paint {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		mainFrame = new JFrame("Java Paint");
 		mainFrame.setBounds(100, 100, 918, 525);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// set the border layout to put the menu on the top and the
+		// paint panel to the center 
 		mainFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		Shapes shapes = new Shapes ();
 		Colors colors = new Colors ();
 		
+		// construct the object to exchange settings between the menu panel
+		// and the paint panel
 		CurrentPaintConfiguration configuration = new CurrentPaintConfiguration();
 
-		// just for test must be replaced with menu-settings!
-		// for the menu the fill color can be set to null
-		// the Color (which means the outline color, or the line must allways be filled)
+		// set the initial configuration of the app
 		configuration.setCurrentShape(shapes.shapeArray[0]);
 		configuration.setCurrentOutlineColor(colors.colorArray[0]);
 		configuration.setCurrentFillColor(colors.colorArray[0]);
 		
 		prepareMenu();
 
-		
+		// construct the paint panel
 		paintPanel = new PaintPanel(configuration, mainFrame);
+		
+		// add the paint panel to the main frame
 		mainFrame.getContentPane().add(paintPanel, BorderLayout.CENTER);
 
+		// construct an add the menu panel
 		JPanel menuPanel = new MenuPanel(configuration, paintPanel);
 		mainFrame.getContentPane().add(menuPanel, BorderLayout.NORTH);
 
