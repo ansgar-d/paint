@@ -13,9 +13,8 @@ import java.awt.Graphics2D;
  */
 public class Oval extends BoundedShape {
 
-    /**
-     * 	
-     * Constructor of an Oval. The start start coordinates of
+    /** 	
+     * Constructor of an Oval. The start coordinates of
      * the object, the color of the outline and the fill color
      * needs to be set.
      */
